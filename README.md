@@ -167,7 +167,7 @@
 body {
   font-family: "Roboto";
   line-height: 1.4;
-  background: url("https://source.unsplash.com/WoZgy7ZwgBI/1920x1080") no-repeat center center/cover;
+  
    height: 100vh;
   width: 100vw;
   overflow: hidden;

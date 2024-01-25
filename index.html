@@ -4,22 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tMukesh Chaubey - Java Full Stack Developer</title>
+    <title>Mukesh Chaubey - Software Engineer Extraordinaire</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #ffe082;
+            color: #424242;
+            transition: background-color 0.5s ease;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #00bcd4;
             color: #fff;
             text-align: center;
             padding: 2em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #00bcd4;
+            padding: 1em 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff4081;
+        }
+
+        #name-board-container {
+            position: fixed;
+            width: 19%;
+            display: flex;
+            align-items: top;
+            top: 0;
+            left: 10%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            /* Set a higher z-index */
+
+        }
+
+
+        #name-board {
+            background-color: #000000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s infinite;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        #thread {
+            height: 2px;
+            background-color: #00bcd4;
+            width: 20%;
+            margin: 0 10px;
         }
 
         section {
@@ -29,34 +85,30 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            scroll-margin-top: 50px;
         }
 
-        h1, h2 {
-            color: #007bff;
+        h2 {
+            color: #ff4081;
         }
 
-        p {
-            line-height: 1.6;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
+        .project-showcase {
+            border: 2px solid #000000;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #e8e8e8;
         }
 
         footer {
             text-align: center;
             padding: 2em;
-            background-color: #007bff;
+            background-color: #00bcd4;
             color: #fff;
         }
 
         a {
-            color: #fff;
+            color: #ff4081;
             text-decoration: none;
             font-weight: bold;
         }
@@ -64,53 +116,367 @@
         a:hover {
             text-decoration: underline;
         }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #experience {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            scroll-margin-top: 50px;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-list li {
+            margin-bottom: 20px;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .project-list li {
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+
+        #tech-writing {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            scroll-margin-top: 50px;
+        }
+
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .writing-entry {
+            padding-left: 40px;
+            padding-top: 40px;
+        }
+
+
+        .writing-entry h3 {
+            color: #ff4081;
+        }
+
+        .writing-entry p {
+            color: #555;
+        }
+
+        .writing-entry .snippet {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .writing-entry a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .writing-entry a:hover {
+            text-decoration: underline;
+        }
+
+        .swiper {
+            width: 700px;
+            height: 300px;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Mukesh Chaubey</h1>
-        <p>Java Full Stack Developer</p>
+        <div id="name-board-container">
+            <div id="name-board">
+                <h1>Mukesh Chaubey </h1>
+                <p>Software Engineer Extraordinaire</p>
+            </div>
+            <div id="thread"></div>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#tech-writing">Tech Post</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
         <p>
-            Welcome to my professional portfolio! I am a dedicated Java Full Stack Developer with a passion for crafting
-            efficient and scalable solutions. My expertise includes Java, Spring Boot, JavaScript, React, and more.
-            I am committed to delivering high-quality software and collaborating with cross-functional teams.
+            Greetings Earthlings! I'm Your Mukesh Chaubey, your friendly Software Engineer Extraordinaire. I've been
+            coding
+            my way through the digital universe, crafting pixels and turning caffeine into code.
         </p>
     </section>
 
     <section id="experience">
         <h2>Experience</h2>
-        <ul>
-            <li>
-                <strong>Senior Full Stack Developer</strong><br>
-                Your Company, City, Country<br>
-                MM/YYYY - Present<br>
-                Description of your responsibilities and achievements.
-            </li>
-            <!-- Add more experience entries as needed -->
-        </ul>
+        <div class="project-showcase">
+
+            <div class="project">
+
+                <strong>Xebia</strong>
+                <ul class="role-list">
+                    <li>
+                        <strong>Senior Consultant</strong>
+                        <br><br>
+
+                        April 2022 - November 2023 (1 year 8 months)
+                        <br>
+                        Gurugram, Haryana, India
+                        <br>
+                        Worked on various projects for in-house banking products
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="project-showcase">
+            <strong>Capgemini</strong>
+            <ul class="role-list">
+                <div class="project">
+                    <li>
+                        <strong>Consultant</strong>
+                        <br><br>
+                        March 2021 - April 2022 (1 year 2 months)
+                        <br>
+                        Remote, Mumbai
+                        <br>
+                        Worked as a backend developer for the rail yard product.
+                    </li>
+
+                    <br><br>
+                    <li>
+                        <strong>Associate Consultant</strong>
+                        <br><br>
+                        October 2019 - March 2021 (1 year 6 months)
+                        <br>
+                        Mumbai, Maharashtra, India
+                        <br>
+                        Worked as a Java backend developer on application migration from on-premise to cloud.
+                    </li>
+                    <br><br>
+                    <li>
+                        <strong>Associate Consultant</strong>
+                        <br><br>
+                        September 2018 - July 2019 (11 months)
+                        <br>
+                        Mumbai, Maharashtra, India
+                        <br>
+                        Worked for an e-commerce website as a Java developer.
+                        <br>
+                        Work included requirement gathering, design, development, and documentation.
+                        <br>
+                        Handled production deployment and support tickets.
+                    </li>
+                </div>
+        </div>
+        <br>
+        <div class="project-showcase">
+
+            <div class="project">
+
+                <strong>Tata Consultancy Services</strong>
+                <ul class="role-list">
+                    <li>
+                        <strong>System Engineer</strong>
+                        <br><br>
+                        jun 2015 - Sep 2018 (3 year 6 months)
+                        <br>
+                        Mumbai, Maharashtra, India
+                        <br>
+                        Worked on various projects for in-house banking products
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
     </section>
 
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
-            <li>Java</li>
-            <li>Spring Boot</li>
-            <li>HTML5, CSS3</li>
-            <li>JavaScript (React)</li>
-            <li>SQL and Database Management</li>
+        <div class="skills-bar">
+            <div class="skill">
+                <div class="skill-name">Java</div>
+                <div class="skill-bar" style="width: 80%;"></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Spring Boot</div>
+                <div class="skill-bar" style="width: 75%;"></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Microservices</div>
+                <div class="skill-bar" style="width: 85%;"></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">RESTful APIs</div>
+                <div class="skill-bar" style="width: 90%;"></div>
+            </div>
             <!-- Add more skills as needed -->
+        </div>
+    </section>
+
+    <section id="tech-writing">
+        <h2>Tech Writing</h2>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+
+                    <div class="writing-entry">
+                        <h3>ELK Stack + Spring Boot</h3>
+                        <p>Published on LinkedIn, Date: Jan 24,2024</p>
+                        <p class="snippet">Article on the Installation and Configuration of the ELK stack, along with a
+                            step-by-step guide on
+                            validating it using a Spring Boot application-generated log file. 🚀
+                            </p>
+                        <a href="https://www.linkedin.com/pulse/elk-stack-spring-boot-mukesh-chaubey-iudsf%3FtrackingId=hxvOwCcKTLGcU4zKa4vX5w%253D%253D/?trackingId=hxvOwCcKTLGcU4zKa4vX5w%3D%3D"
+                            target="_blank">Read on LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+
+                    <div class="writing-entry">
+                        <h3>Reactive Microservices With Spring Boot</h3>
+                        <p>Published on LinkedIn, Date: Jan 23, 2024</p>
+                        <p class="snippet">In this tutorial we will learn how to use spring webflux along with spring data r2dbc to build ,test and consume reactive microservice</p>
+                        <a href="https://www.linkedin.com/pulse/reactive-microservices-spring-boot-mukesh-chaubey-fkvgf%3FtrackingId=gOoh8By1t1uTsiEpCPrBfA%253D%253D/?trackingId=gOoh8By1t1uTsiEpCPrBfA%3D%3D">Read on
+                            LinkedIn</a>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="writing-entry">
+                        <h3>Spring for GraphQL</h3>
+                        <p>Published on Medium, Date: Jun 4, 2023</p>
+                        <p class="snippet">Concept and Demo how can we use GraphQL in Spring Boot</p>
+                        <a href="https://chaubeymukesh.medium.com/spring-for-graphql-e54fc19ff6f">Read on
+                            Medium</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+
+                    <div class="writing-entry">
+                        <h3>Kafka Basic 101</h3>
+                        <p>Published on Medium, Date: Jul 10, 2023</p>
+                        <p class="snippet">Introduction about kafka</p>
+                        <a href="https://chaubeymukesh.medium.com/kafka-basic-101-282b8e04aa20">Read on
+                            Medium</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        </div>
+    </section>
+
+    <div id="article-container"></div>
+
+
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <strong>Prin. L.N. Wellingkar Institute Of Mgt.</strong>
+                <br>
+                Master of Business Administration - MBA
+            </li>
+            <li>
+                <strong>Thakur College of Science & Commerce</strong>
+                <br>
+                HSC
+            </li>
+            <li>
+                <strong>Thakur Educational Trusts Thakur Shyamnarayan College of Eduction & Research</strong>
+                <br>
+                Thakur Village, Kandivli (E) Mumbai 400 101
+                <br>
+                SSC
+            </li>
         </ul>
     </section>
 
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p>Contact: <a href="mailto:mukesh.chaubey@yahoo.com">mukesh.chaubey@yahoo.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/mukesh-c-a160a61a8/"
+                    target="_blank">https://www.linkedin.com/in/mukesh-c-a160a61a8/</a>
+        </div>
+    </section>
+
     <footer>
-        <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
+        <p>@MukeshChaubey</p>
+        </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        var swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 </body>
 
 </html>

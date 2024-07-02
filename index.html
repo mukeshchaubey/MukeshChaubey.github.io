@@ -96,7 +96,7 @@
     line-height: 1.6;
   }
   .about-details {
-    display: none; /* Initially hidden */
+    display: block; /* Initially hidden */
     margin-top: 40px;
   }
   .card-container {
@@ -560,7 +560,7 @@
 
    <!-- Connect Section -->
    <section id="connect" class="container">
-    <h2 class="section-title">Connect With Me</h2>
+    <h2 class="section-title center-align">Connect With Me</h2>
     <div class="connect-links">
       <a href="https://www.linkedin.com/in/mukeshchaubey" target="_blank">LinkedIn</a>
       <a href="https://github.com/mukeshchaubeyy" target="_blank">GitHub</a>
@@ -579,16 +579,6 @@
       var instances2 = M.Parallax.init(elems2);
     });
 
-  window.addEventListener('scroll', function() {
-    var aboutDetails = document.getElementById('about-details');
-    var aboutSummary = document.getElementById('about-summary');
-    var aboutTop = aboutSummary.offsetTop;
-    var scrollPosition = window.scrollY + window.innerHeight;
-    
-    if (scrollPosition > aboutTop) {
-      aboutDetails.style.display = 'block';
-    }
-  });
   </script>
 </body>
 </html>

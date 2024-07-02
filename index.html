@@ -1,482 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mukesh Chaubey - Software Engineer Extraordinaire</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #ffe082;
-            color: #424242;
-            transition: background-color 0.5s ease;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mukesh Chaubey - Profile</title>
+  <!-- Import Materialize CSS -->
+  <link href="./materialize.min.css" rel="stylesheet">
+  <!-- Import Google Icons -->
+  <link href="./icon.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #1A2130; /* Black background */
+      color: #FDFFE2; /* White text */
+    }
+    main {
+      flex: 1 0 auto;
+    }
+    .parallax-container {
+      height: 40px;
+    }
+    section {
+      padding: 50px 0;
+    }
+    .card .card-image img {
+      object-fit: cover;
+    }
+    .fixed-nav {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background-color: #1A2130; /* Darker navbar background */
+    }
+    .nav-wrapper a {
+      color: #FDFFE2 !important; /* White links */
+    }
+    .sidenav-trigger i {
+      color: #FDFFE2; /* White menu icon */
+    }
+    .sidenav {
+      background-color: #1A2130; /* Darker side nav background */
+    }
+    .sidenav a {
+      color: #FDFFE2 !important; /* White side nav links */
+    }
+    .card {
+      color: #FDFFE2; /* White card text */
+    }
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow on hover */
+      transform: scale(1.02); /* Scale up on hover */
+    }
+    .input-field input[type=text]:focus, .input-field input[type=email]:focus, .input-field textarea:focus {
+      border-bottom: 1px solid #FDFFE2 !important; /* White focus border */
+      box-shadow: 0 1px 0 0 #FDFFE2 !important; /* White focus shadow */
+    }
+    .btn {
+      background-color: #5A72A0; /* tech-stack-item button */
+    }
+    .btn:hover {
+      background-color: #83B4FF; /* Darker tech-stack-item on hover */
+    }
+/* About Section styles */
+#about {
+    padding-top: 100px; /* Space for fixed navbar */
+    text-align: center;
+  }
+  .about-summary {
+    padding: 20px;
+    background-color: #1A2130;
+    border-radius: 8px;
+    color: #FDFFE2;
+    margin-top: 20px;
+    animation: dropAnimation 1.5s ease-out, jumpAnimation 2s infinite alternate;
+  }
+  .about-summary h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .about-summary h2 .highlight {
+    color: #5A72A0;
+    font-weight: bold;
+    font-size: 2.8rem;
+    display: inline-block;
+  }
+  .about-summary h2 .name {
+    color: #FDFFE2;
+    margin-left: 5px;
+  }
+  .about-summary p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  .about-details {
+    display: none; /* Initially hidden */
+    margin-top: 40px;
+  }
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .card {
+    width: 250px;
+    padding: 20px;
+    background-color: #1A2130;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  .card i {
+    font-size: 3rem;
+    color: #5A72A0;
+    margin-bottom: 10px;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1rem;
+    color: #FDFFE2;
+  }
+  /* Animation Keyframes */
+  @keyframes dropAnimation {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes jumpAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 
-        header {
-            background-color: #00bcd4;
-            color: #fff;
-            text-align: center;
-            padding: 2em;
-        }
+  /* Work Section styles */
+  #work {
+    padding: 40px 0;
+  }
+  .timeline {
+    position: relative;
+    padding: 0;
+    list-style-type: none;
+  }
+  .timeline-item {
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .timeline-content {
+    background-color: #1A2130;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 70%;
+  }
+  .timeline-content h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  .timeline-content p {
+    margin: 10px 0;
+  }
+  .timeline-content .date {
+    font-style: italic;
+    color: #FDFFE2;
+  }
+  .timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #5A72A0; /* Timeline line color */
+    transform: translateX(-50%);
+  }
+  /* Alternate timeline item alignment */
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    margin-right: 0;
+    background-color: #1A2130; /* Alternate background color */
+  } 
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #00bcd4;
-            padding: 1em 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  .tech-stack-item{
+    color: #5A72A0;
+    margin-top: 5px;
+  }
+  .section-title {
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 600; /* Semi-bold font weight */
+    color: #5A72A0; /* Dark color against light background */
+    margin-bottom: 30px; /* Space below the title */
+    text-transform: uppercase; /* Uppercase text */
+    position: relative; /* For animation positioning */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5em 1em;
-            margin: 0 10px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+  .section-title::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px; /* Line width */
+    height: 2px; /* Line thickness */
+    background-color: #5A72A0; /* Blue color */
+    transition: width 0.3s ease; /* Smooth width transition */
+  }
 
-        nav a:hover {
-            color: #ff4081;
-        }
+  .section-title:hover {
+    color: #83B4FF; /* Color change on hover */
+  }
 
-        #name-board-container {
-            position: fixed;
-            width: 19%;
-            display: flex;
-            align-items: top;
-            top: 0;
-            left: 10%;
-            transform: translateX(-50%);
-            z-index: 1001;
-            /* Set a higher z-index */
-
-        }
-
-
-        #name-board {
-            background-color: #000000;
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: bounce 2s infinite;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-
-        #thread {
-            height: 2px;
-            background-color: #00bcd4;
-            width: 20%;
-            margin: 0 10px;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            scroll-margin-top: 50px;
-        }
-
-        h2 {
-            color: #ff4081;
-        }
-
-        .project-showcase {
-            border: 2px solid #000000;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: #e8e8e8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2em;
-            background-color: #00bcd4;
-            color: #fff;
-        }
-
-        a {
-            color: #ff4081;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-20px);
-            }
-
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-
-        #experience {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            scroll-margin-top: 50px;
-        }
-
-        .experience-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .experience-list li {
-            margin-bottom: 20px;
-        }
-
-        .project-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-
-        .project-list li {
-            margin-bottom: 10px;
-            margin-left: 20px;
-        }
-
-        #tech-writing {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            scroll-margin-top: 50px;
-        }
-
-        .writing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .writing-entry {
-            padding-left: 40px;
-            padding-top: 40px;
-        }
+  .section-title:hover::before {
+    width: 100%; /* Line width expands on hover */
+  }
 
 
-        .writing-entry h3 {
-            color: #ff4081;
-        }
+   .scrollable-tech {
+    overflow-y: auto; /* Enable vertical scroll */
+    max-height: 500px; /* Set maximum height for scrollable area */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+  }
 
-        .writing-entry p {
-            color: #555;
-        }
+  .tech-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    background-size: 2px;
+  }
 
-        .writing-entry .snippet {
-            color: #777;
-            margin-bottom: 10px;
-        }
+  .tech-list li {
+    margin-bottom: 10px; /* Space between list items */
+  }
 
-        .writing-entry a {
-            color: #00bcd4;
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
+  .tech-list li a {
+    display: block; /* Make the entire link area clickable */
+    padding: 10px; /* Padding inside each link */
+    color: #FDFFE2; /* Text color */
+    background-color: #1A2130; /* Background color */
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
 
-        .writing-entry a:hover {
-            text-decoration: underline;
-        }
+  .tech-list li a:hover {
+    background-color: #5A72A0; /* Darker background color on hover */
+  }
 
-        .swiper {
-            width: 700px;
-            height: 300px;
-        }
-    </style>
+  .section-title {
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 600; /* Semi-bold font weight */
+    color: #FDFFE2; /* Text color */
+    margin-bottom: 20px; /* Space below the title */
+    text-transform: uppercase; /* Uppercase text */
+  }
+
+  .connect-links {
+      text-align: center;
+      padding: 30px 0;
+    }
+    .connect-links a {
+      margin: 0 10px;
+      font-size: 2rem;
+      color: #FDFFE2; /* Green color */
+    }
+    .connect-links a:hover {
+      text-decoration: none;
+    }
+    .tech-card {
+      background-color: #5A72A0; /* Dark card background */
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .tech-card a {
+      color: #FDFFE2; /* Green link color */
+    }
+    .tech-card a:hover {
+      text-decoration: none;
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <div id="name-board-container">
-            <div id="name-board">
-                <h1>Mukesh Chaubey </h1>
-                <p>Software Engineer Extraordinaire</p>
-            </div>
-            <div id="thread"></div>
+  <!-- Navbar -->
+  <nav class="fixed-nav">
+    <div class="nav-wrapper container">
+      <a href="#!" class="brand-logo">Mukesh Chaubey</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tech">Tech</a></li>
+        <li><a href="#tech-writing">Tech Writing</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Side Navigation for Mobile -->
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#tech">Tech</a></li>
+    <li><a href="#tech-writing">Tech Writing</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+
+  <!-- Parallax Header -->
+  <div class="parallax-container">
+  </div>
+<!-- About Section -->
+<section id="about" class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="about-summary" id="about-summary">
+          <h2><span class="highlight">Hi,</span> <span class="name">I'm Mukesh</span></h2>
+          <p>A passionate developer specializing in web development and design. I love creating interactive and responsive websites.</p>
         </div>
-    </header>
-
-    <nav>
-        <a href="#introduction">Introduction</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#tech-writing">Tech Post</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="introduction">
-        <h2>Introduction</h2>
-        <p>
-            Greetings Earthlings! I'm Your Mukesh Chaubey, your friendly Software Engineer Extraordinaire. I've been
-            coding
-            my way through the digital universe, crafting pixels and turning caffeine into code.
-        </p>
-    </section>
-
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="project-showcase">
-
-            <div class="project">
-
-                <strong>Xebia</strong>
-                <ul class="role-list">
-                    <li>
-                        <strong>Senior Consultant</strong>
-                        <br><br>
-
-                        April 2022 - November 2023 (1 year 8 months)
-                        <br>
-                        Gurugram, Haryana, India
-                        <br>
-                        Worked on various projects for in-house banking products
-                    </li>
-                </ul>
+        <div class="about-details" id="about-details">
+          <div class="card-container">
+            <div class="card">
+              <i class="material-icons">laptop_mac</i>
+              <h3>Frontend Developer</h3>
+              <p>Expertise in building user interfaces with HTML, CSS, and JavaScript.</p>
             </div>
-        </div>
-        <br>
-        <div class="project-showcase">
-            <strong>Capgemini</strong>
-            <ul class="role-list">
-                <div class="project">
-                    <li>
-                        <strong>Consultant</strong>
-                        <br><br>
-                        March 2021 - April 2022 (1 year 2 months)
-                        <br>
-                        Remote, Mumbai
-                        <br>
-                        Worked as a backend developer for the rail yard product.
-                    </li>
-
-                    <br><br>
-                    <li>
-                        <strong>Associate Consultant</strong>
-                        <br><br>
-                        October 2019 - March 2021 (1 year 6 months)
-                        <br>
-                        Mumbai, Maharashtra, India
-                        <br>
-                        Worked as a Java backend developer on application migration from on-premise to cloud.
-                    </li>
-                    <br><br>
-                    <li>
-                        <strong>Associate Consultant</strong>
-                        <br><br>
-                        September 2018 - July 2019 (11 months)
-                        <br>
-                        Mumbai, Maharashtra, India
-                        <br>
-                        Worked for an e-commerce website as a Java developer.
-                        <br>
-                        Work included requirement gathering, design, development, and documentation.
-                        <br>
-                        Handled production deployment and support tickets.
-                    </li>
-                </div>
-        </div>
-        <br>
-        <div class="project-showcase">
-
-            <div class="project">
-
-                <strong>Tata Consultancy Services</strong>
-                <ul class="role-list">
-                    <li>
-                        <strong>System Engineer</strong>
-                        <br><br>
-                        jun 2015 - Sep 2018 (3 year 6 months)
-                        <br>
-                        Mumbai, Maharashtra, India
-                        <br>
-                        Worked on various projects for in-house banking products
-                    </li>
-                </ul>
+            <div class="card">
+              <i class="material-icons">desktop_windows</i>
+              <h3>Backend Developer</h3>
+              <p>Skilled in server-side programming and database management.</p>
             </div>
-        </div>
-        <br>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-bar">
-            <div class="skill">
-                <div class="skill-name">Java</div>
-                <div class="skill-bar" style="width: 80%;"></div>
+            <div class="card">
+              <i class="material-icons">cloud</i>
+              <h3>Cloud Practitioner</h3>
+              <p>Experience in deploying applications and managing cloud infrastructure.</p>
             </div>
-            <div class="skill">
-                <div class="skill-name">Spring Boot</div>
-                <div class="skill-bar" style="width: 75%;"></div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">Microservices</div>
-                <div class="skill-bar" style="width: 85%;"></div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">RESTful APIs</div>
-                <div class="skill-bar" style="width: 90%;"></div>
-            </div>
-            <!-- Add more skills as needed -->
+          </div>
         </div>
-    </section>
-
-    <section id="tech-writing">
-        <h2>Tech Writing</h2>
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-
-                    <div class="writing-entry">
-                        <h3>ELK Stack + Spring Boot</h3>
-                        <p>Published on LinkedIn, Date: Jan 24,2024</p>
-                        <p class="snippet">Article on the Installation and Configuration of the ELK stack, along with a
-                            step-by-step guide on
-                            validating it using a Spring Boot application-generated log file. 🚀
-                            </p>
-                        <a href="https://www.linkedin.com/pulse/elk-stack-spring-boot-mukesh-chaubey-iudsf%3FtrackingId=hxvOwCcKTLGcU4zKa4vX5w%253D%253D/?trackingId=hxvOwCcKTLGcU4zKa4vX5w%3D%3D"
-                            target="_blank">Read on LinkedIn</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-
-                    <div class="writing-entry">
-                        <h3>Reactive Microservices With Spring Boot</h3>
-                        <p>Published on LinkedIn, Date: Jan 23, 2024</p>
-                        <p class="snippet">In this tutorial we will learn how to use spring webflux along with spring data r2dbc to build ,test and consume reactive microservice</p>
-                        <a href="https://www.linkedin.com/pulse/reactive-microservices-spring-boot-mukesh-chaubey-fkvgf%3FtrackingId=gOoh8By1t1uTsiEpCPrBfA%253D%253D/?trackingId=gOoh8By1t1uTsiEpCPrBfA%3D%3D">Read on
-                            LinkedIn</a>
-
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="writing-entry">
-                        <h3>Spring for GraphQL</h3>
-                        <p>Published on Medium, Date: Jun 4, 2023</p>
-                        <p class="snippet">Concept and Demo how can we use GraphQL in Spring Boot</p>
-                        <a href="https://chaubeymukesh.medium.com/spring-for-graphql-e54fc19ff6f">Read on
-                            Medium</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-
-                    <div class="writing-entry">
-                        <h3>Kafka Basic 101</h3>
-                        <p>Published on Medium, Date: Jul 10, 2023</p>
-                        <p class="snippet">Introduction about kafka</p>
-                        <a href="https://chaubeymukesh.medium.com/kafka-basic-101-282b8e04aa20">Read on
-                            Medium</a>
-
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Work Section -->
+<section id="work" class="container">
+    <h2 class="center-align section-title ">Work Experience</h2>
+    <div class="timeline">
+      <!-- Publicis Sapient -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Senior Associate Platform L2</h3>
+          <p>Publicis Sapient</p>
+          <p class="date">Nov 2023 - Present</p>
+          <p>Noida, Uttar Pradesh, India</p>
+          <p>Working on project which involved re-writing entire application in new tech stack and migration from on-premise to cloud.</p>
         </div>
+      </div>
+  
+      <!-- Xebia -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Senior Consultant</h3>
+          <p>Xebia</p>
+          <p class="date">April 2022 - November 2023 (1 year 8 months)</p>
+          <p>Gurugram, Haryana, India</p>
+          <p>Worked on various projects for in-house banking products.</p>
         </div>
-    </section>
-
-    <div id="article-container"></div>
-
-
-
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <strong>Prin. L.N. Wellingkar Institute Of Mgt.</strong>
-                <br>
-                Master of Business Administration - MBA
-            </li>
-            <li>
-                <strong>Thakur College of Science & Commerce</strong>
-                <br>
-                HSC
-            </li>
-            <li>
-                <strong>Thakur Educational Trusts Thakur Shyamnarayan College of Eduction & Research</strong>
-                <br>
-                Thakur Village, Kandivli (E) Mumbai 400 101
-                <br>
-                SSC
-            </li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <p>Contact: <a href="mailto:mukesh.chaubey@yahoo.com">mukesh.chaubey@yahoo.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/mukesh-c-a160a61a8/"
-                    target="_blank">https://www.linkedin.com/in/mukesh-c-a160a61a8/</a>
+      </div>
+  
+      <!-- Capgemini -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Consultant</h3>
+          <p>Capgemini</p>
+          <p class="date">March 2021 - April 2022 (1 year 2 months)</p>
+          <p>Remote, Mumbai, India</p>
+          <p>Worked as a backend developer for the rail yard product.</p>
         </div>
-    </section>
+      </div>
+  
+      <!-- Capgemini (Associate Consultant) -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Associate Consultant</h3>
+          <p>Capgemini</p>
+          <p class="date">October 2019 - March 2021 (1 year 6 months)</p>
+          <p>Mumbai, Maharashtra, India</p>
+          <p>Worked as a Java backend developer on application migration from on-premise to cloud.</p>
+        </div>
+      </div>
+  
+      <!-- Capgemini (Associate Consultant) -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Associate Consultant</h3>
+          <p>Capgemini</p>
+          <p class="date">September 2018 - July 2019 (11 months)</p>
+          <p>Mumbai, Maharashtra, India</p>
+          <p>Worked for an e-commerce website as a Java developer. Work included requirement gathering, design, development, and documentation. Handled production deployment and support tickets.</p>
+        </div>
+      </div>
+  
+      <!-- Tata Consultancy Services -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>System Engineer</h3>
+          <p>Tata Consultancy Services</p>
+          <p class="date">June 2015 - September 2018 (3 years 6 months)</p>
+          <p>Mumbai, Maharashtra, India</p>
+          <p>Worked on various projects for in-house banking products.</p>
+        </div>
+      </div>
+      
+      <!-- Add more timeline items as needed -->
+    </div>
+  </section>
+  
 
-    <footer>
-        <p>@MukeshChaubey</p>
-        </p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ <!-- Projects Section -->
+<section id="projects" class="container">
+    <h2 class="center-align section-title">Projects</h2>
+    <div class="row">
+      <!-- Project 1: Spring Boot Security -->
+      <div class="col s12 m6">
+        <div class="card large">
+            <div class="card-action">
+                <i class="material-icons">security</i> <!-- Example icon, replace with appropriate icon -->
+              </div>
+          <div class="card-content">
+            <span class="card-title">Spring Boot Security</span>
+            <a href="https://github.com/mukeshchaubeyy/spring-boot-learning/tree/main/employeeService" target="_blank"><p>This project showcases the implementation of Spring Boot Security for authentication and authorization in a web application. It includes role-based access control, password encryption, and secure endpoints.</p>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+  
+      <!-- Project 2: Vegetable E-commerce Solution -->
+      <div class="col s12 m6">
+        <div class="card large">
+            <div class="card-action">
+                <i class="material-icons">shopping_cart</i> <!-- Example icon, replace with appropriate icon -->
+              </div>
+          <div class="card-content">
+            <span class="card-title">Vegetable E-commerce Solution</span>
+            <p>This project is an end-to-end solution for an e-commerce platform specializing in vegetables. It includes features like product catalog, shopping cart, order management, payment gateway integration, and user authentication.</p>
+          </div>
+          
+        </div>
+      </div>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+       <!-- Project 2: Vegetable E-commerce Solution -->
+       <div class="col s12 m6">
+        <div class="card large">
+            <div class="card-action">
+                <i class="material-icons">shopping_cart</i> <!-- Example icon, replace with appropriate icon -->
+              </div>
+          <div class="card-content">
+            <span class="card-title">Instant Application Creator</span>
+            <p>This project will spin up instant API using an database table</p>
+          </div>
+          
+        </div>
+      </div>
+  
+      <!-- Add more projects as needed -->
+    </div>
+  </section>
+  
+  <!-- Tech Section -->
+<section id="tech" >
+    <div class="container">
+      <h2 class="center-align">Tech Stack</h2>
+      <div class="row center-align">
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">code</i>
+          <p>Java</p>
+        </div>
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">extension</i>
+          <p>Spring Boot | Dropwizard</p>
+        </div>
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">cloud</i>
+          <p>AWS | Azure</p>
+        </div>
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">message</i>
+          <p>kafka</p>
+        </div>
+      </div>
+      <div class="row center-align">
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">search</i>
+          <p>Elasticsearch</p>
+        </div>
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">visibility</i>
+          <p>Kibana
+        </div>
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">build</i>
+          <p>Docker | Kubernetes | Jenkins | Gitlab </p>
+        </div>
+        <div class="col s12 m3">
+          <i class="material-icons large tech-stack-item">language</i>
+          <p>HTML | CSS | JavaScript | React</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tech Writing Section -->
+  <section id="tech-writing" class="container">
+    <h2 class="section-title center-align">Tech Writing</h2>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="tech-card">
+          <p><a href="https://www.linkedin.com/pulse/unveiling-power-spring-security-62-your-boot-project-mukesh-chaubey-drdvf">Spring Security in Spring Boot 3</a></p>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="tech-card">
+          <p><a href="https://www.linkedin.com/pulse/elk-stack-spring-boot-mukesh-chaubey-iudsf?trk=public_profile_article_view">ELK Stack + Spring Boot</a></p>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="tech-card">
+          <p><a href="https://www.linkedin.com/pulse/reactive-microservices-spring-boot-mukesh-chaubey-fkvgf?trk=public_profile_article_view">Reactive Microservices With Spring Boot</a></p>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="tech-card">
+          <p><a href="https://chaubeymukesh.medium.com/spring-for-graphql-e54fc19ff6f">Spring for GraphQL</a></p>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="tech-card">
+          <p><a href="https://chaubeymukesh.medium.com/kafka-basic-101-282b8e04aa20">Kafka Basic 101</a></p>
+        </div>
+      </div>
+      <!-- Add more items as needed -->
+    </div>
+  </section>
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+   <!-- Connect Section -->
+   <section id="connect" class="container">
+    <h2 class="section-title">Connect With Me</h2>
+    <div class="connect-links">
+      <a href="https://www.linkedin.com/in/mukeshchaubey" target="_blank">LinkedIn</a>
+      <a href="https://github.com/mukeshchaubeyy" target="_blank">GitHub</a>
+    </div>
+  </section>
 
-        var swiper = new Swiper('.swiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
+
+  <!-- Import Materialize JavaScript -->
+  <script src="./materialize.min.js"></script>
+  <!-- Initialize Materialize Components -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+      var elems2 = document.querySelectorAll('.parallax');
+      var instances2 = M.Parallax.init(elems2);
+    });
+
+  window.addEventListener('scroll', function() {
+    var aboutDetails = document.getElementById('about-details');
+    var aboutSummary = document.getElementById('about-summary');
+    var aboutTop = aboutSummary.offsetTop;
+    var scrollPosition = window.scrollY + window.innerHeight;
+    
+    if (scrollPosition > aboutTop) {
+      aboutDetails.style.display = 'block';
+    }
+  });
+  </script>
 </body>
-
 </html>
